@@ -21,9 +21,9 @@ export declare function getExtension(path: string): string;
 /** Parse all subtags out of the given tag. I.e., #hello/i/am would yield [#hello/i/am, #hello/i, #hello]. */
 export declare function extractSubtags(tag: string): string[];
 /** Try calling the given function; on failure, return the error message.  */
-export declare function tryOrPropogate<T>(func: () => Result<T, string>): Result<T, string>;
+export declare function tryOrPropagate<T>(func: () => Result<T, string>): Result<T, string>;
 /** Try asynchronously calling the given function; on failure, return the error message. */
-export declare function asyncTryOrPropogate<T>(func: () => Promise<Result<T, string>>): Promise<Result<T, string>>;
+export declare function asyncTryOrPropagate<T>(func: () => Promise<Result<T, string>>): Promise<Result<T, string>>;
 /**
  * Escape regex characters in a string.
  * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions.
@@ -42,3 +42,5 @@ export declare function renderMinimalDate(time: DateTime, settings: QuerySetting
 export declare function renderMinimalDuration(dur: Duration): string;
 /** Determine if two sets are equal in contents. */
 export declare function setsEqual<T>(first: Set<T>, second: Set<T>): boolean;
+/** Normalize a markdown string. Removes all markdown tags and obsidian links. */
+export declare function normalizeMarkdown(str: string): string;

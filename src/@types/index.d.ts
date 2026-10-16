@@ -3,6 +3,10 @@ export type {
   Duration
 } from 'luxon';
 export type { DataArray } from './api/data-array.d.ts';
+export type {
+  DataviewInlineApi,
+  DataviewInlineIOApi
+} from './api/inline-api.d.ts';
 export type { DataviewApi } from './api/plugin-api.d.ts';
 export type {
   Failure,

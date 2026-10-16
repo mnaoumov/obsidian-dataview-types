@@ -125,6 +125,7 @@ export declare namespace DefaultFunctions {
   const truncate: FunctionImpl;
   const fdefault: FunctionImpl;
   const ldefault: FunctionImpl;
+  const display: FunctionImpl;
   const choice: FunctionImpl;
   const hash: FunctionImpl;
   const reduce: FunctionImpl;
@@ -143,6 +144,7 @@ export declare namespace DefaultFunctions {
   const meta: FunctionImpl;
   const flat: FunctionImpl;
   const slice: FunctionImpl;
+  const firstvalue: FunctionImpl;
 }
 /** Default function implementations for the expression evaluator. */
 export declare const DEFAULT_FUNCTIONS: Record<string, FunctionImpl>;
