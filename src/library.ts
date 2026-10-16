@@ -9,10 +9,12 @@
  * are upstream's, with the same answers.
  */
 
-import type {
-  App,
-  Plugin
-} from 'obsidian';
+// Loads the ESM copy of obsidian-typings, the copy the `PluginsPluginsRecord` augmentation in `typings/obsidian-ex.d.ts`
+// targets. `tsconfig.json` deliberately has no `types` entry for the package: on `node16` that entry loads the
+// CommonJS copy, which an augmentation in this ES-module package never reaches.
+/// <reference types="@obsidian-typings/obsidian-public-latest" resolution-mode="import" />
+
+import type { App } from 'obsidian';
 
 import type { DataviewApi } from './@types/api/plugin-api.d.ts';
 
@@ -60,16 +62,6 @@ export type {
 const DATAVIEW_PLUGIN_ID = 'dataview';
 
 /**
- * The loaded Dataview plugin, as far as this module reads it.
- */
-interface DataviewPlugin extends Plugin {
-  /**
-   * The API Dataview publishes on its plugin instance.
-   */
-  api: DataviewApi;
-}
-
-/**
  * Gets the Dataview API.
  *
  * @param app - The Obsidian app. When given, the API is read from the loaded Dataview plugin; otherwise from the
@@ -77,14 +69,7 @@ interface DataviewPlugin extends Plugin {
  * @returns The Dataview API, or `undefined` while Dataview is not loaded.
  */
 export function getAPI(app?: App): DataviewApi | undefined {
-  if (!app) {
-    return window.DataviewAPI;
-  }
-
-  // Not `app.plugins.plugins.dataview`: the `PluginsPluginsRecord` augmentation in `typings/obsidian-ex.d.ts` does not
-  // reach the record `compilerOptions.types` loads when the augmenting file is an ES module, so it cannot be relied on.
-  const plugin = app.plugins.plugins[DATAVIEW_PLUGIN_ID];
-  return isDataviewPlugin(plugin) ? plugin.api : undefined;
+  return app ? app.plugins.plugins[DATAVIEW_PLUGIN_ID]?.api : window.DataviewAPI;
 }
 
 /**
@@ -95,8 +80,4 @@ export function getAPI(app?: App): DataviewApi | undefined {
  */
 export function isPluginEnabled(app: App): boolean {
   return app.plugins.enabledPlugins.has(DATAVIEW_PLUGIN_ID);
-}
-
-function isDataviewPlugin(plugin: Plugin | undefined): plugin is DataviewPlugin {
-  return plugin !== undefined && 'api' in plugin;
 }
