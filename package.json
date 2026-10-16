@@ -9,13 +9,13 @@
     "typescript",
     "types"
   ],
-  "homepage": "https://github.com/mnaoumov/obsidian-dataview#readme",
+  "homepage": "https://github.com/mnaoumov/obsidian-dataview-types#readme",
   "bugs": {
-    "url": "https://github.com/mnaoumov/obsidian-dataview/issues"
+    "url": "https://github.com/mnaoumov/obsidian-dataview-types/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mnaoumov/obsidian-dataview.git"
+    "url": "git+https://github.com/mnaoumov/obsidian-dataview-types.git"
   },
   "license": "MIT",
   "author": "Michael Naumov",
