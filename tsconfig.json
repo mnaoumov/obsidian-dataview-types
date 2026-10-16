@@ -1,0 +1,46 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022",
+      "ESNext.Disposable"
+    ],
+    "libReplacement": true,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "verbatimModuleSyntax": true,
+    "types": [
+      "@obsidian-typings/obsidian-public-latest",
+      "@total-typescript/ts-reset",
+      "node"
+    ],
+    "paths": {
+      "@mnaoumov/obsidian-dataview": [
+        "./src/index.ts"
+      ],
+      "@mnaoumov/obsidian-dataview/*": [
+        "./src/*.ts",
+        "./src/*/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "./commitlint.config.ts",
+    "./eslint.config.mts",
+    "./scripts/**/*.ts",
+    "./src/**/*.ts",
+    "./vitest.config.ts"
+  ]
+}

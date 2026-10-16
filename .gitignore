@@ -1,0 +1,30 @@
+# vscode
+.vscode
+
+# Intellij
+*.iml
+.idea
+
+# npm
+node_modules
+
+# Exclude sourcemaps
+*.map
+
+# Exclude macOS Finder (System Explorer) View States
+.DS_Store
+
+dist
+coverage
+
+# Build outputs: the declarations `build:types` emits beside the sources. The vendored ones under `@types` are sources.
+/src/**/*.d.ts
+!/src/**/@types/**/*.d.ts
+
+*.tsbuildinfo
+.tsbuildinfo/
+/.env
+
+.claude/settings.local.json
+
+*.orig
