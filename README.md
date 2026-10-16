@@ -8,7 +8,7 @@ Working TypeScript types for the [Dataview](https://github.com/blacksmithgu/obsi
 npm install @mnaoumov/obsidian-dataview
 ```
 
-`obsidian` is a peer dependency, and so are the `@codemirror/state`, `@codemirror/view` and `@lezer/common` versions it brings. `@obsidian-typings/obsidian-public-latest` is an optional peer: `typings/obsidian-ex` augments its `PluginsPluginsRecord` with the Dataview plugin. That augmentation only takes effect for code that resolves the CommonJS flavor of `obsidian-typings`, which is the one `compilerOptions.types` loads. From an ES module it merges into nothing, so prefer `getAPI(app)` to reading `app.plugins.plugins.dataview`.
+`obsidian` is a peer dependency, and so are the `@codemirror/state`, `@codemirror/view` and `@lezer/common` versions it brings. `@obsidian-typings/obsidian-public-latest` is an optional peer: `typings/obsidian-ex` augments its `PluginsPluginsRecord` with the Dataview plugin. Each build of that file augments the matching copy of `obsidian-typings`: the ESM declarations augment its ESM copy, and the CommonJS ones its CommonJS copy. So it takes effect when your program loads `obsidian-typings` in the format your own code is in. A `node16` or `nodenext` ES-module project that lists the package in `compilerOptions.types` loads only the CommonJS copy, so there `app.plugins.plugins.dataview` stays a plain `Plugin`. Load it with an ESM import instead, as the `obsidian-typings` README describes under "Extend with your own typings". `getAPI(app)` is typed the same in every setup.
 
 ## Usage
 

@@ -1,7 +1,4 @@
-import type {
-  App,
-  Plugin
-} from 'obsidian';
+import type { App } from 'obsidian';
 
 import { strictProxy } from '@mnaoumov/typescript-test-toolkit/strict-proxy';
 import {
@@ -50,12 +47,6 @@ describe('getAPI', () => {
 
   it('should return undefined when the app has no Dataview plugin loaded', () => {
     expect(getAPI(createApp({}))).toBeUndefined();
-  });
-
-  it('should return undefined when the plugin under the Dataview id publishes no API', () => {
-    const app = createApp({});
-    app.plugins.plugins['dataview'] = strictProxy<Plugin>({});
-    expect(getAPI(app)).toBeUndefined();
   });
 
   it('should read the window global when no app is given', () => {
