@@ -1,7 +1,7 @@
 /**
  * @file
  *
- * The package entry point: every type Dataview's own `index` publishes, and working implementations of the two
+ * The package entry point: every type `Dataview`'s own `index` publishes, and working implementations of the two
  * functions it publishes beside them.
  *
  * Upstream's `obsidian-dataview` ships `getAPI` and `isPluginEnabled` as real code in `lib/index.js`, so a
@@ -57,26 +57,26 @@ export type {
 } from './@types/index.d.ts';
 
 /**
- * The plugin id Dataview registers under.
+ * The plugin id `Dataview` registers under.
  */
 const DATAVIEW_PLUGIN_ID = 'dataview';
 
 /**
- * Gets the Dataview API.
+ * Gets the `Dataview` API.
  *
- * @param app - The Obsidian app. When given, the API is read from the loaded Dataview plugin; otherwise from the
- * `window.DataviewAPI` global Dataview installs.
- * @returns The Dataview API, or `undefined` while Dataview is not loaded.
+ * @param app - The Obsidian app. When given, the API is read from the loaded `Dataview` plugin; otherwise from the
+ * `window.DataviewAPI` global `Dataview` installs.
+ * @returns The `Dataview` API, or `undefined` while `Dataview` is not loaded.
  */
 export function getAPI(app?: App): DataviewApi | undefined {
   return app ? app.plugins.plugins[DATAVIEW_PLUGIN_ID]?.api : window.DataviewAPI;
 }
 
 /**
- * Checks whether Dataview is enabled in the given app.
+ * Checks whether `Dataview` is enabled in the given app.
  *
  * @param app - The Obsidian app.
- * @returns `true` when Dataview is among the enabled plugins, even before it has finished loading.
+ * @returns `true` when `Dataview` is among the enabled plugins, even before it has finished loading.
  */
 export function isPluginEnabled(app: App): boolean {
   return app.plugins.enabledPlugins.has(DATAVIEW_PLUGIN_ID);

@@ -20,7 +20,7 @@ import {
 } from 'eslint/config';
 import { posix } from 'node:path';
 
-// The code runs in Obsidian's renderer and addresses `window` where it means the window, as Dataview itself does. The
+// The code runs in Obsidian's renderer and addresses `window` where it means the window, as `Dataview` itself does. The
 // rule's autofix also chains with `unicorn/no-unnecessary-global-this` into a bare global read, which throws a
 // `ReferenceError` exactly where the global is absent -- the case the code was guarding.
 function getBrowserGlobalConfigs(): Linter.Config[] {
@@ -34,7 +34,7 @@ function getBrowserGlobalConfigs(): Linter.Config[] {
 function getIgnoreConfigs(): Linter.Config[] {
   return defineConfig([
     globalIgnores([
-      // The vendored Dataview declarations mirror upstream's emit, so the house style is not imposed on them.
+      // The vendored `Dataview` declarations mirror upstream's emit, so the house style is not imposed on them.
       posix.join(RepoPaths.AnyPath, RepoPaths.AnyDts)
     ])
   ]);
