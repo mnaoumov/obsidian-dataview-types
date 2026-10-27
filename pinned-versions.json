@@ -1,8 +1,34 @@
 {
-  "katex": {
-    "section": "overrides",
-    "why": "https://github.com/advisories/GHSA-238p-pmpm-9mq7 affects KaTeX before 0.18.2. micromark-extension-math 3.1.0 still requires ^0.16.0; force the patched line for markdownlint's math renderer until that range changes.",
-    "check": "npm view micromark-extension-math@latest dependencies.katex",
-    "expect": "^0.16.0"
+  "pins": {
+    "@codemirror/state": {
+      "section": "devDependencies",
+      "why": "Obsidian 1.14.4 declares this exact peer version. Keep the development types aligned with Obsidian to avoid conflicting CodeMirror instances.",
+      "check": "npm view obsidian@latest peerDependencies.@codemirror/state",
+      "expect": "6.7.6"
+    },
+    "@codemirror/view": {
+      "section": "devDependencies",
+      "why": "Obsidian 1.14.4 declares this exact peer version. Keep the development types aligned with Obsidian to avoid conflicting CodeMirror instances.",
+      "check": "npm view obsidian@latest peerDependencies.@codemirror/view",
+      "expect": "6.43.13"
+    },
+    "@lezer/common": {
+      "section": "devDependencies",
+      "why": "Inherited exact pin from the initial package extraction; repository history records no reason that an exact version is required. Retained pending a compatibility review rather than inventing a historical constraint.",
+      "check": null,
+      "manualCheck": "Try a caret range against the current Obsidian and Dataview declarations, run npm install and npm run gate, and inspect npm ls @lezer/common --all for incompatible duplicate type identities. Remove the exact pin if those checks pass."
+    },
+    "katex": {
+      "section": "overrides",
+      "why": "https://github.com/advisories/GHSA-238p-pmpm-9mq7 affects KaTeX before 0.18.2. micromark-extension-math 3.1.0 still requires ^0.16.0; force the patched line for markdownlint's math renderer until that range changes.",
+      "check": "npm view micromark-extension-math@latest dependencies.katex",
+      "expect": "^0.16.0"
+    },
+    "typescript": {
+      "section": "devDependencies",
+      "why": "Inherited compiler baseline from the initial package extraction; repository history records no specific incompatibility requiring 6.0.3. Retained pending validation of a compiler upgrade against the vendored declarations and better-typescript-lib.",
+      "check": null,
+      "manualCheck": "Try the latest TypeScript with a caret range, check the installed typescript-eslint and better-typescript-lib compatibility, and run npm run gate including both declaration validation configurations. Remove the exact pin if those checks pass."
+    }
   }
 }
