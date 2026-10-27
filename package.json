@@ -80,6 +80,17 @@
     "test:watch": "jiti scripts/test-watch.ts",
     "version": "jiti scripts/version.ts"
   },
+  "overrides": {
+    "@puppeteer/browsers": "^3.2.2",
+    "@vitest/coverage-v8": "$@vitest/coverage-v8",
+    "deepmerge-ts": "^8.0.2",
+    "eslint": "$eslint",
+    "eslint-plugin-import": "npm:eslint-plugin-import-x@^4.17.1",
+    "fflate": "$fflate",
+    "js-yaml": "4.3.2",
+    "smol-toml": "^1.8.0",
+    "typescript": "$typescript"
+  },
   "dependencies": {
     "@types/luxon": "^3.7.5",
     "@types/parsimmon": "^1.10.9",
@@ -87,25 +98,13 @@
     "localforage": "^1.10.0",
     "preact": "^10.29.8"
   },
-  "peerDependencies": {
-    "@codemirror/state": "^6.0.1",
-    "@codemirror/view": "^6.0.1",
-    "@lezer/common": "^1.0.0",
-    "@obsidian-typings/obsidian-public-latest": ">=6.0.0",
-    "obsidian": ">=1.4.0"
-  },
-  "peerDependenciesMeta": {
-    "@obsidian-typings/obsidian-public-latest": {
-      "optional": true
-    }
-  },
   "devDependencies": {
     "@codemirror/state": "6.7.6",
     "@codemirror/view": "6.43.13",
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
     "@lezer/common": "1.5.2",
-    "@mnaoumov/typescript-dev-toolkit": "^1.2.0",
+    "@mnaoumov/typescript-dev-toolkit": "^4.0.0",
     "@mnaoumov/typescript-test-toolkit": "^1.0.0",
     "@obsidian-typings/obsidian-public-latest": "^6.37.0",
     "@total-typescript/ts-reset": "^0.6.1",
@@ -130,21 +129,22 @@
     "typescript": "6.0.3",
     "vitest": "^5.0.1"
   },
+  "peerDependencies": {
+    "@codemirror/state": "^6.0.1",
+    "@codemirror/view": "^6.0.1",
+    "@lezer/common": "^1.0.0",
+    "@obsidian-typings/obsidian-public-latest": ">=6.0.0",
+    "obsidian": ">=1.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@obsidian-typings/obsidian-public-latest": {
+      "optional": true
+    }
+  },
   "engines": {
     "node": ">=22.0.0"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "overrides": {
-    "@puppeteer/browsers": "^3.2.2",
-    "@vitest/coverage-v8": "$@vitest/coverage-v8",
-    "deepmerge-ts": "^8.0.2",
-    "eslint": "$eslint",
-    "eslint-plugin-import": "npm:eslint-plugin-import-x@^4.17.1",
-    "fflate": "$fflate",
-    "js-yaml": "4.3.2",
-    "smol-toml": "^1.8.0",
-    "typescript": "$typescript"
   }
 }
