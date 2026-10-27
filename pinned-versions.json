@@ -1,0 +1,8 @@
+{
+  "katex": {
+    "section": "overrides",
+    "why": "https://github.com/advisories/GHSA-238p-pmpm-9mq7 affects KaTeX before 0.18.2. micromark-extension-math 3.1.0 still requires ^0.16.0; force the patched line for markdownlint's math renderer until that range changes.",
+    "check": "npm view micromark-extension-math@latest dependencies.katex",
+    "expect": "^0.16.0"
+  }
+}
